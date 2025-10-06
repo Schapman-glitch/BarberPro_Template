@@ -127,35 +127,50 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container grid-2">
-        <div>
-          <h2>Visit or Book Now</h2>
-          <p>123 Main Street, Suite 100<br>Temecula, CA 92590</p>
-          <p><a href="tel:+15551234567">📞 (555) 123‑4567</a><br>
-          <a href="mailto:hello@barberpro.com">✉️ hello@barberpro.com</a></p>
-          <p><strong>Hours</strong><br>Mon–Fri: 9am–7pm<br>Sat: 9am–5pm • Sun: Closed</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#" target="_blank" rel="noopener">Book on Calendly</a>
-            <a class="btn ghost" href="#" target="_blank" rel="noopener">Get Directions</a>
-          </div>
-        </div>
-        <div class="map-placeholder rounded shadow" role="img" aria-label="Map placeholder – replace with Google Maps embed"></div>
-      </div>
-    </section>
-  </main>
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+  <div class="container grid-2">
+    <div>
+      <h2>Visit or Book Now</h2>
+      <p>123 Main Street, Suite 100<br>Temecula, CA 92590</p>
+      <p>
+        <a href="tel:+15551234567">📞 (555) 123-4567</a><br>
+        <a href="mailto:hello@barberpro.com">✉️ hello@barberpro.com</a>
+      </p>
+      <p><strong>Hours</strong><br>Mon–Fri: 9am–7pm<br>Sat: 9am–5pm • Sun: Closed</p>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="logo" href="#"><span class="logo-mark">✂</span> BarberPro</a>
-      <p>© <span id="year"></span> BarberPro. All rights reserved.</p>
-      <div class="socials">
-        <a aria-label="Instagram" href="#">Instagram</a>
-        <a aria-label="Facebook" href="#">Facebook</a>
+      <div class="cta-row">
+        <a class="btn primary" href="#" target="_blank" rel="noopener">Book on Calendly</a>
+
+        <!-- Directions button -->
+        <a id="directionsBtn" class="btn ghost" href="#" target="_blank" rel="noopener">
+          Get Directions
+        </a>
+
+        <!-- Travel mode dropdown -->
+        <select id="travelMode" class="btn ghost sm" aria-label="Travel mode">
+          <option value="driving" selected>Driving</option>
+          <option value="walking">Walking</option>
+          <option value="transit">Transit</option>
+          <option value="bicycling">Bicycling</option>
+        </select>
       </div>
     </div>
-  </footer>
+
+    <!-- Map Embed -->
+    <div class="map-placeholder rounded shadow" style="overflow:hidden; position:relative;">
+      <iframe
+        id="mapFrame"
+        title="BarberPro Map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        style="border:0; width:100%; height:320px;"
+        src="">
+      </iframe>
+    </div>
+  </div>
+</section>
+
 
   <script src="assets/js/script.js"></script>
 </body>
