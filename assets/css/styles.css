@@ -74,15 +74,24 @@ a{color:var(--text);text-decoration:none}
 .site-footer{border-top:1px solid #222;padding:28px 0;color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 
-/* Responsive */
-@media (max-width: 940px){
-  .hero-inner, .grid-2{grid-template-columns:1fr}
-  .grid-3, .cards{grid-template-columns:repeat(2,1fr)}
-  .nav{position:fixed;inset:60px 12px auto 12px;background:var(--panel);border:1px solid #242428;border-radius:14px;padding:12px;display:none;flex-direction:column}
-  .nav.show{display:flex}
-  .nav-toggle{display:block}
+/* Map (responsive) */
+.map-wrap{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  border: 1px solid #2e2e2e;
+  background: #111;
 }
-@media (max-width: 560px){
-  .grid-3, .cards{grid-template-columns:1fr}
-  .hero{padding:72px 0}
+.map-wrap iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
+.map-wrap iframe { pointer-events: none; }
+.map-wrap:hover iframe,
+.map-wrap:focus-within iframe { pointer-events: auto; }
+
