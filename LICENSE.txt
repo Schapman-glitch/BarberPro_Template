@@ -1,0 +1,11 @@
+BarberPro Template – Simple License
+
+You are granted a non-exclusive license to:
+- Use this template for yourself or one client (one end product).
+- Modify the code as needed for that project.
+
+You may NOT:
+- Resell, repackage, or redistribute the template as a competing product.
+- Claim the original template as your own without significant modifications.
+
+For extended or multiple-use licenses, contact the author.

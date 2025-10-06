@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BarberPro – Modern Barber Shop</title>
+  <meta name="description" content="Professional grooming – precision cuts, clean fades, classic shaves. Book your appointment today.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#"><span class="logo-mark">✂</span> BarberPro</a>
+      <nav class="nav" id="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary sm" href="#contact">Book Now</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Look Sharp. <br><span class="accent">Feel Confident.</span></h1>
+          <p>Precision cuts, clean fades, and classic shaves by experienced barbers.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Book Appointment</a>
+            <a class="btn ghost" href="#services">View Services</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="assets/img/hero-placeholder.svg" alt="Barber chair and tools">
+        </div>
+      </div>
+      <a class="scroll-indicator" href="#about" aria-label="Scroll to content">▾</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="container grid-2">
+        <img class="rounded shadow" src="assets/img/about-placeholder.svg" alt="Barber working on a client">
+        <div>
+          <h2>Experienced Barbers You Can Trust</h2>
+          <p>With over 10 years of combined experience, our team delivers attention to detail and consistent results—tailored to your style.</p>
+          <ul class="badges">
+            <li>✂️ Precision Cuts</li>
+            <li>💈 Clean Fades</li>
+            <li>🔥 Hot-Towel Shaves</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section services">
+      <div class="container">
+        <h2 class="center">Services & Pricing</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Haircut</h3>
+            <p>Classic, fade, or modern styles.</p>
+            <div class="price">$25</div>
+          </article>
+          <article class="card">
+            <h3>Beard Trim</h3>
+            <p>Line-up and shape to perfection.</p>
+            <div class="price">$15</div>
+          </article>
+          <article class="card">
+            <h3>Hot Shave</h3>
+            <p>Hot towel with premium shave.</p>
+            <div class="price">$20</div>
+          </article>
+          <article class="card">
+            <h3>Kids Cut</h3>
+            <p>Clean styles for ages 4–12.</p>
+            <div class="price">$20</div>
+          </article>
+        </div>
+        <p class="center note">* Prices may vary. Ask about student discounts.</p>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <h2 class="center">Our Work</h2>
+        <div class="grid-3 gallery-grid">
+          <a href="assets/img/gallery-1.svg" class="lightbox"><img src="assets/img/gallery-1.svg" alt="Fade haircut sample 1"></a>
+          <a href="assets/img/gallery-2.svg" class="lightbox"><img src="assets/img/gallery-2.svg" alt="Fade haircut sample 2"></a>
+          <a href="assets/img/gallery-3.svg" class="lightbox"><img src="assets/img/gallery-3.svg" alt="Scissor cut sample"></a>
+          <a href="assets/img/gallery-4.svg" class="lightbox"><img src="assets/img/gallery-4.svg" alt="Beard trim sample"></a>
+          <a href="assets/img/gallery-5.svg" class="lightbox"><img src="assets/img/gallery-5.svg" alt="Classic shave sample"></a>
+          <a href="assets/img/gallery-6.svg" class="lightbox"><img src="assets/img/gallery-6.svg" alt="Kids cut sample"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="section reviews">
+      <div class="container">
+        <h2 class="center">What Our Clients Say</h2>
+        <div class="cards">
+          <blockquote class="card quote">
+            <p>“Best fade in town. I won’t go anywhere else.”</p>
+            <footer>— Marcus R.</footer>
+          </blockquote>
+          <blockquote class="card quote">
+            <p>“Clean cut every time. Friendly staff and chill vibe.”</p>
+            <footer>— James T.</footer>
+          </blockquote>
+          <blockquote class="card quote">
+            <p>“They understood exactly what I wanted. Highly recommend!”</p>
+            <footer>— Aaron W.</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container grid-2">
+        <div>
+          <h2>Visit or Book Now</h2>
+          <p>123 Main Street, Suite 100<br>Temecula, CA 92590</p>
+          <p><a href="tel:+15551234567">📞 (555) 123‑4567</a><br>
+          <a href="mailto:hello@barberpro.com">✉️ hello@barberpro.com</a></p>
+          <p><strong>Hours</strong><br>Mon–Fri: 9am–7pm<br>Sat: 9am–5pm • Sun: Closed</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#" target="_blank" rel="noopener">Book on Calendly</a>
+            <a class="btn ghost" href="#" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+        <div class="map-placeholder rounded shadow" role="img" aria-label="Map placeholder – replace with Google Maps embed"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="logo" href="#"><span class="logo-mark">✂</span> BarberPro</a>
+      <p>© <span id="year"></span> BarberPro. All rights reserved.</p>
+      <div class="socials">
+        <a aria-label="Instagram" href="#">Instagram</a>
+        <a aria-label="Facebook" href="#">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="lightboxOverlay" class="lightbox-overlay" hidden>
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <img id="lightboxImage" src="" alt="Gallery preview">
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
