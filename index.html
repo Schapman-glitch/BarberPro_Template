@@ -129,8 +129,9 @@
 
 <!-- CONTACT -->
 <section id="contact" class="section contact">
-  <div class="container grid-2">
-    <div>
+  <div class="container contact-grid">
+    <!-- Left: info -->
+    <div class="contact-info">
       <h2>Visit or Book Now</h2>
       <p>123 Main Street, Suite 100<br>Temecula, CA 92590</p>
       <p>
@@ -141,25 +142,25 @@
 
       <div class="cta-row">
         <a class="btn primary" href="#" target="_blank" rel="noopener">Book on Calendly</a>
+        <a class="btn ghost"
+           href="https://www.google.com/maps/search/?api=1&query=123+Main+Street,+Temecula,+CA+92590"
+           target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
 
-        <!-- Directions button -->
-        <a id="directionsBtn" class="btn ghost" href="https://www.google.com/maps/place/Tulsa,+OK/@36.1524411,-95.87809,11z/data=!3m1!4b1!4m6!3m5!1s0x87b692b8ddd12e8f:0xe76910c81bd96af7!8m2!3d36.1551375!4d-95.989501!16zL20vMDEza2N2?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
-          Get Directions
-        </a>
-
-    <!-- Map Embed -->
-    <div class="map-placeholder rounded shadow" style="overflow:hidden; position:relative;">
+    <!-- Right: map -->
+    <div class="map-wrap rounded shadow">
       <iframe
-        id="mapFrame"
         title="BarberPro Map"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        style="border:0; width:100%; height:320px;"
-        src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206181.1129303917!2d-95.87809004999997!3d36.15244105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b692b8ddd12e8f%3A0xe76910c81bd96af7!2sTulsa%2C%20OK!5e0!3m2!1sen!2sus!4v1759789554106!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>">
+        allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206181.1129303917!2d-95.87809004999997!3d36.15244105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b692b8ddd12e8f%3A0xe76910c81bd96af7!2sTulsa%2C%20OK!5e0!3m2!1sen!2sus!4v1759789554106!5m2!1sen!2sus">
       </iframe>
     </div>
   </div>
 </section>
+
 
 
   <script src="assets/js/script.js"></script>
