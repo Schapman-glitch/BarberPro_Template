@@ -74,11 +74,6 @@ a{color:var(--text);text-decoration:none}
 .site-footer{border-top:1px solid #222;padding:28px 0;color:var(--muted)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 
-/* Lightbox */
-.lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:grid;place-items:center;padding:32px}
-.lightbox-overlay img{max-width:min(92vw,1100px);max-height:80vh;border-radius:12px;box-shadow:var(--shadow)}
-.lightbox-close{position:absolute;top:14px;right:18px;font-size:36px;line-height:1;background:none;border:0;color:#fff;cursor:pointer}
-
 /* Responsive */
 @media (max-width: 940px){
   .hero-inner, .grid-2{grid-template-columns:1fr}
@@ -91,9 +86,3 @@ a{color:var(--text);text-decoration:none}
   .grid-3, .cards{grid-template-columns:1fr}
   .hero{padding:72px 0}
 }
-/* Ensure hidden actually hides, even if other rules set display */
-[hidden] { display: none !important; }
-
-:root { --shadow: 0 10px 30px rgba(0,0,0,0.35); }     /* was 35 */
-.site-header { background: rgba(15,15,16,0.8); }       /* was 8  */
-.lightbox-overlay { background: rgba(0,0,0,0.85); }    /* was 85 */

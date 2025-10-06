@@ -11,9 +11,7 @@ const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Simple lightbox for gallery
-const overlay = document.getElementById('lightboxOverlay');
-const overlayImg = document.getElementById('lightboxImage');
-const closeBtn = document.querySelector('.lightbox-close');
+
 
 document.querySelectorAll('.lightbox').forEach(a => {
   a.addEventListener('click', (e) => {
