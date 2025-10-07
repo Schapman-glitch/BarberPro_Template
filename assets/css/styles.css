@@ -197,8 +197,8 @@ a{color:var(--text);text-decoration:none}
   gap:10px;
 
   /* “more square” */
-  min-height:100px;
-  aspect-ratio:3 / 3;                  /* width drives height */
+  min-height:180px;
+  aspect-ratio:1 / 1;                  /* width drives height */
   overflow:hidden;                     /* hide overflow if clamped */
 }
 
