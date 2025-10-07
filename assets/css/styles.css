@@ -172,78 +172,63 @@ a{color:var(--text);text-decoration:none}
 .badges{display:flex;gap:10px;flex-wrap:wrap;padding:0;margin:16px 0 0}
 .badges li{list-style:none;background:var(--panel);border:1px solid #252629;padding:8px 12px;border-radius:999px}
 
-/* ===== Services / Cards (final, consolidated) ===== */
+/* ===== Services / Cards — COMPACT ===== */
 
-/* Grid stays from your earlier definition — keep only ONE .cards rule */
+/* one .cards rule only */
 .cards{
   display:grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
   gap:16px;
   margin-top:20px;
-  align-items:stretch;                 /* children fill track height */
+  align-items:start;                 /* don't stretch to tallest item */
 }
 
-/* Compact card layout */
+/* compact card */
 .card{
   background:var(--panel);
   border:1px solid #242428;
   border-radius:16px;
   box-shadow:var(--shadow);
-  padding:14px;                     /* tighter padding */
+  padding:12px;
   display:flex;
   flex-direction:column;
   gap:8px;
 
-  min-height:120px;                 /* shorter */
-  aspect-ratio:4 / 3;               /* less tall */
+  /* no forced height/ratio */
+  min-height:auto;
+  aspect-ratio:auto;
   overflow:hidden;
 }
 
-#services .card{
-  aspect-ratio:auto;                /* let height depend on content */
-  min-height:auto;                  /* natural compact height */
+#services .card{ /* services use natural height too */
+  min-height:auto;
+  aspect-ratio:auto;
 }
 
 .card h3{
-  margin-top:0;
-  font-size:18px;                   /* slightly smaller title */
+  margin:0 0 4px;
+  font-size:18px;
 }
-
 .card p{
   margin:0;
   line-height:1.45;
   font-size:15px;
 }
 
+/* price sits under text (no push-to-bottom) */
 .card .price{
-  margin-top:auto;
-  font-size:18px;                   /* smaller price */
+  margin-top:8px;
+  font-size:18px;
   font-weight:700;
   color:var(--brand);
 }
 
-@media (max-width: 560px){
-  .cards{ grid-template-columns: 1fr; }
-  .card{
-    aspect-ratio:auto;
-    min-height:auto;
-    padding:12px;
-  }
-}
-
-
-.card h3{ margin-top:0; }
-.card .price{ font-size:22px; font-weight:800; color:var(--brand); }
-.note{ color:var(--muted); margin-top:12px; }
-
-/* Responsive */
+/* responsive: only change columns, not height */
 @media (max-width: 900px){
   .cards{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .card{ min-height:140px; }
 }
 @media (max-width: 560px){
   .cards{ grid-template-columns: 1fr; }
-  .card{ min-height:130px; }
 }
 
 
