@@ -164,22 +164,45 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.getElementById('nav');
+    const nav    = document.getElementById('nav');
     const toggle = document.getElementById('navToggle');
-    if (!nav || !toggle) return;
+    const header = document.querySelector('.site-header');
+    if (!nav || !toggle || !header) return;
 
-    function toggleMenu() {
-      nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+    function setMenuTop(){
+      nav.style.setProperty('--menuTop', header.offsetHeight + 'px');
     }
 
-    toggle.addEventListener('click', toggleMenu);
+    function openMenu(){
+      setMenuTop();
+      nav.classList.add('open');
+      document.body.classList.add('menu-open');
+      toggle.setAttribute('aria-expanded','true');
+    }
+    function closeMenu(){
+      nav.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      toggle.setAttribute('aria-expanded','false');
+    }
+
+    toggle.addEventListener('click', () => {
+      nav.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
     nav.addEventListener('click', e => {
-      if (e.target.tagName === 'A') nav.classList.remove('open');
+      if (e.target.tagName === 'A') closeMenu();
+    });
+
+    // keep aligned with header height changes / rotation
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) {
+        closeMenu();
+      } else if (nav.classList.contains('open')) {
+        setMenuTop();
+      }
     });
   });
 </script>
-
 
   <script src="assets/js/script.js"></script>
 </body>

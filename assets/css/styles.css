@@ -63,40 +63,40 @@ a{color:var(--text);text-decoration:none}
 
 /* ===== Mobile / Tablet ===== */
 @media (max-width: 900px){
-  /* show hamburger, hide desktop row */
   .nav-toggle{ display:block; }
+
+  /* Make menu a fixed overlay below the header */
   .nav{
-    position:absolute;
-    left:0; right:0; top:100%;
-    z-index:1000;
+    position: fixed;
+    top: var(--menuTop, 64px);   /* set by JS to your header height */
+    left: 0; right: 0;
+    z-index: 1000;
 
-    /* column list */
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
-    background:rgba(15,15,16,.98);
+    background: rgba(15,15,16,.98);
     backdrop-filter: blur(8px);
-    border-bottom:1px solid #222;
+    border-bottom: 1px solid #222;
     box-shadow: var(--shadow);
-    padding:12px;
+    padding: 12px 12px calc(12px + env(safe-area-inset-bottom)); /* iOS safe area */
 
-    /* hidden by default, animated open */
-    max-height:0;
-    overflow:hidden;
-    opacity:0;
-    transform:translateY(-6px);
-    pointer-events:none;
-    transition: max-height .35s ease, opacity .25s ease, transform .25s ease;
+    height: 0;                   /* hidden by default */
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: height .3s ease, opacity .25s ease, transform .25s ease;
   }
 
   .nav.open{
-    opacity:1;
-    transform:translateY(0);
-    pointer-events:auto;
-     max-height: 80vh;            /* cap dropdown height to 80% of viewport */
-    overflow-y: auto;            /* allow vertical scroll */
-    -webkit-overflow-scrolling: touch; /* smooth scrolling on iPhone */
+    height: calc(100vh - var(--menuTop, 64px));   /* fill screen under header */
+    overflow-y: auto;               /* scroll if long */
+    -webkit-overflow-scrolling: touch;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .nav a{
@@ -115,7 +115,10 @@ a{color:var(--text);text-decoration:none}
   }
 
   .header-inner{ position:relative; }
+  /* prevent page behind from scrolling when menu open */
+  body.menu-open{ overflow:hidden; }
 }
+
 
 /* Hero */
 .hero{position:relative;padding:96px 0}
