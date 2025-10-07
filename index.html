@@ -8,30 +8,6 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
-<script>
-  const nav = document.getElementById('nav');
-  const toggle = document.getElementById('navToggle');
-
-  function closeMenu(){
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded','false');
-  }
-
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  // Close when a link is tapped
-  nav.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') closeMenu();
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
-</script>
 
 <body>
   <header class="site-header">
@@ -186,7 +162,42 @@
   </div>
 </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.getElementById('nav');
+      const toggle = document.getElementById('navToggle');
+      if (!nav || !toggle) return;
 
+      function openMenu(){
+        nav.classList.add('open');
+        nav.style.maxHeight = nav.scrollHeight + 'px';
+        toggle.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        nav.style.maxHeight = '0px';
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+      }
+
+      toggle.addEventListener('click', () => {
+        nav.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      nav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') closeMenu();
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900){
+          nav.style.maxHeight = '';
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded','false');
+        } else if (nav.classList.contains('open')){
+          nav.style.maxHeight = nav.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
 
   <script src="assets/js/script.js"></script>
 </body>

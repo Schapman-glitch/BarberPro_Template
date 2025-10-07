@@ -65,45 +65,53 @@ a{color:var(--text);text-decoration:none}
 @media (max-width: 900px){
   /* show hamburger, hide desktop row */
   .nav-toggle{ display:block; }
-  .nav{ 
+  .nav{
     position:absolute;
     left:0; right:0; top:100%;
-    display:block;                 /* becomes a dropdown list */
+    z-index:1000;
+
+    /* column list */
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
     background:rgba(15,15,16,.98);
     backdrop-filter: blur(8px);
     border-bottom:1px solid #222;
     box-shadow: var(--shadow);
-    
-    /* slide-down animation container */
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-8px);
+    padding:12px;
+
+    /* hidden by default, animated open */
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(-6px);
+    pointer-events:none;
     transition: max-height .35s ease, opacity .25s ease, transform .25s ease;
   }
-  /* when open */
+
   .nav.open{
-    max-height: 480px;            /* big enough to fit links */
-    opacity: 1;
-    transform: translateY(0);
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+    /* JS will set max-height dynamically */
   }
 
-  /* dropdown link styling */
   .nav a{
     display:block;
     padding:14px 12px;
     border:1px solid #242428;
     border-radius:10px;
     background:var(--panel);
-    margin:8px 12px;
-  }
-  .nav .btn.primary.sm{
-    display:block; text-align:center; 
-    background:var(--brand); color:#111; border-color:transparent;
-    margin:12px;
+    margin:4px 12px;
   }
 
-  /* keep header elements aligned */
+  .nav .btn.primary.sm{
+    display:block; text-align:center;
+    background:var(--brand); color:#111; border-color:transparent;
+    margin:8px 12px 12px;
+  }
+  
   .header-inner{ position:relative; }
 }
 
@@ -159,12 +167,68 @@ a{color:var(--text);text-decoration:none}
 .badges{display:flex;gap:10px;flex-wrap:wrap;padding:0;margin:16px 0 0}
 .badges li{list-style:none;background:var(--panel);border:1px solid #252629;padding:8px 12px;border-radius:999px}
 
-/* Services */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
-.card{background:var(--panel);border:1px solid #242428;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
-.card h3{margin-top:0}
-.card .price{font-size:22px;font-weight:800;color:var(--brand)}
-.note{color:var(--muted);margin-top:12px}
+/* ===== Services / Cards (final, consolidated) ===== */
+
+/* Grid stays from your earlier definition — keep only ONE .cards rule */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:16px;
+  margin-top:20px;
+  align-items:stretch;                 /* children fill track height */
+}
+
+/* One definitive .card rule (merges both of your versions) */
+.card{
+  background:var(--panel);
+  border:1px solid #242428;
+  border-radius:16px;
+  box-shadow:var(--shadow);
+
+  /* shape + spacing */
+  padding:16px;                        /* tighter than 20px */
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  /* “more square” */
+  min-height:150px;
+  aspect-ratio:5 / 4;                  /* width drives height */
+  overflow:hidden;                     /* hide overflow if clamped */
+}
+
+.card h3{ margin-top:0; }
+.card .price{ font-size:22px; font-weight:800; color:var(--brand); }
+.note{ color:var(--muted); margin-top:12px; }
+
+/* Tighter paragraphs so text doesn’t stretch the box */
+.card p{ margin:0; line-height:1.45; }
+
+/* Keep price/signature at the bottom without adding height */
+.card .price, .quote footer{ margin-top:auto; }
+
+/* Optional: clamp long copy to keep the box neat */
+.card p{
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* Section-specific tweaks */
+#services .card{ aspect-ratio:1 / 1; }  /* perfect squares for services */
+#reviews  .card{ aspect-ratio:5 / 4; }  /* a touch taller for quotes */
+
+/* Responsive */
+@media (max-width: 900px){
+  .cards{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .card{ min-height:140px; }
+}
+@media (max-width: 560px){
+  .cards{ grid-template-columns: 1fr; }
+  .card{ min-height:130px; }
+}
+
 
 /* Gallery */
 .gallery-grid a{border-radius:12px;overflow:hidden;border:1px solid #232326}
