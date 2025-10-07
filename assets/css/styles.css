@@ -236,24 +236,6 @@ a{color:var(--text);text-decoration:none}
 .card .price{ font-size:22px; font-weight:800; color:var(--brand); }
 .note{ color:var(--muted); margin-top:12px; }
 
-/* Tighter paragraphs so text doesn’t stretch the box */
-.card p{ margin:0; line-height:1.45; }
-
-/* Keep price/signature at the bottom without adding height */
-.card .price, .quote footer{ margin-top:auto; }
-
-/* Optional: clamp long copy to keep the box neat */
-.card p{
-  display:-webkit-box;
-  -webkit-line-clamp:4;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-
-/* Section-specific tweaks */
-#services .card{ aspect-ratio:1 / 1; }  /* perfect squares for services */
-#reviews  .card{ aspect-ratio:5 / 4; }  /* a touch taller for quotes */
-
 /* Responsive */
 @media (max-width: 900px){
   .cards{ grid-template-columns: repeat(2, minmax(0,1fr)); }
