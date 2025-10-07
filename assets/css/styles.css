@@ -183,24 +183,54 @@ a{color:var(--text);text-decoration:none}
   align-items:stretch;                 /* children fill track height */
 }
 
-/* One definitive .card rule (merges both of your versions) */
+/* Compact card layout */
 .card{
   background:var(--panel);
   border:1px solid #242428;
   border-radius:16px;
   box-shadow:var(--shadow);
-
-  /* shape + spacing */
-  padding:16px;                        /* tighter than 20px */
+  padding:14px;                     /* tighter padding */
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:8px;
 
-  /* “more square” */
-  min-height:180px;
-  aspect-ratio:1 / 1;                  /* width drives height */
-  overflow:hidden;                     /* hide overflow if clamped */
+  min-height:120px;                 /* shorter */
+  aspect-ratio:4 / 3;               /* less tall */
+  overflow:hidden;
 }
+
+#services .card{
+  aspect-ratio:auto;                /* let height depend on content */
+  min-height:auto;                  /* natural compact height */
+}
+
+.card h3{
+  margin-top:0;
+  font-size:18px;                   /* slightly smaller title */
+}
+
+.card p{
+  margin:0;
+  line-height:1.45;
+  font-size:15px;
+}
+
+.card .price{
+  margin-top:auto;
+  font-size:18px;                   /* smaller price */
+  font-weight:700;
+  color:var(--brand);
+}
+
+@media (max-width: 560px){
+  .cards{ grid-template-columns: 1fr; }
+  .card{
+    aspect-ratio:auto;
+    min-height:auto;
+    padding:12px;
+  }
+}
+
 
 .card h3{ margin-top:0; }
 .card .price{ font-size:22px; font-weight:800; color:var(--brand); }
