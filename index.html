@@ -163,41 +163,23 @@
 </section>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const nav = document.getElementById('nav');
-      const toggle = document.getElementById('navToggle');
-      if (!nav || !toggle) return;
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.getElementById('nav');
+    const toggle = document.getElementById('navToggle');
+    if (!nav || !toggle) return;
 
-      function openMenu(){
-        nav.classList.add('open');
-        nav.style.maxHeight = nav.scrollHeight + 'px';
-        toggle.setAttribute('aria-expanded','true');
-      }
-      function closeMenu(){
-        nav.style.maxHeight = '0px';
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded','false');
-      }
+    function toggleMenu() {
+      nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+    }
 
-      toggle.addEventListener('click', () => {
-        nav.classList.contains('open') ? closeMenu() : openMenu();
-      });
-
-      nav.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') closeMenu();
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 900){
-          nav.style.maxHeight = '';
-          nav.classList.remove('open');
-          toggle.setAttribute('aria-expanded','false');
-        } else if (nav.classList.contains('open')){
-          nav.style.maxHeight = nav.scrollHeight + 'px';
-        }
-      });
+    toggle.addEventListener('click', toggleMenu);
+    nav.addEventListener('click', e => {
+      if (e.target.tagName === 'A') nav.classList.remove('open');
     });
-  </script>
+  });
+</script>
+
 
   <script src="assets/js/script.js"></script>
 </body>
