@@ -8,6 +8,31 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
+<script>
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('navToggle');
+
+  function closeMenu(){
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close when a link is tapped
+  nav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') closeMenu();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -24,7 +49,7 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
+</header>
 
   <main>
     <!-- HERO -->
